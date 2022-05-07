@@ -1,4 +1,4 @@
-from talon import Module, Context, actions, settings
+from talon import Context, Module, actions, settings
 
 mod = Module()
 ctx = Context()
@@ -7,16 +7,17 @@ tag: user.javascript
 """
 
 ctx.lists["user.code_common_function"] = {
+    "abs": "Math.abs",
     "entries": "Object.entries",
     "flatten": "flatten",
+    "floor": "Math.floor",
     "from entries": "Object.fromEntries",
     "keys": "Object.keys",
+    "log": "console.log",
     "max": "Math.max",
     "min": "Math.min",
-    "abs": "Math.abs",
-    "round": "Math.round",
-    "floor": "Math.floor",
     "print": "console.log",
+    "round": "Math.round",
     "values": "Object.values",
 }
 
@@ -31,11 +32,11 @@ ctx.lists["user.code_chain_function"] = {
     "includes": "includes",
     "map": "map",
     "push": "push",
+    "reduce": "reduce",
     "some": "some",
     "split": "split",
     "substring": "substring",
     "then": "then",
-    "reduce": "reduce",
 }
 
 
@@ -68,7 +69,7 @@ class UserActions:
         actions.auto_insert("this")
 
     def code_operator_object_accessor():
-        actions.auto_insert('.')
+        actions.auto_insert(".")
 
     def code_state_while():
         actions.user.insert_between("while (", ")")
